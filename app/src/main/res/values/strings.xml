@@ -14,4 +14,41 @@
     <string name="mapa_entrar">See Map</string>
     <string name="empresas">See companies</string>
     <string name="foot1">Privacy Policy – Privacy E Terms</string>
+    <string name="policies">
+        <![CDATA[
+        <b>Privacy Policy and Terms of Service – IPVC MAPS</b><br/><br/>
+
+        <b>Privacy Policy</b><br/>
+        At IPVC MAPS, we are committed to protecting your privacy. This policy outlines how we collect, use, and share information to improve your experience with our app.<br/><br/>
+
+        <b>Information Collection:</b><br/>
+        We may collect personal details like your name and email when you use our app, as well as device data, IP address, and usage patterns to enhance app performance.<br/><br/>
+
+        <b>Usage of Information:</b><br/>
+        Information is used to provide, personalize, and improve our services, communicate with you, and for analytics purposes.<br/><br/>
+
+        <b>Data Sharing:</b><br/>
+        We only share information with trusted third-party providers essential for operating our service or as required by law.<br/><br/>
+
+        <b>Security:</b><br/>
+        We apply standard security practices to protect your data but note that no method is 100% secure.<br/><br/>
+
+        <b>User Rights:</b><br/>
+        You have rights to access, correct, or delete your personal data. Contact us if you wish to exercise these rights.<br/><br/>
+
+        <b>Terms of Service</b><br/><br/>
+
+        <b>Usage:</b><br/>
+        Use the app lawfully and respectfully. Unauthorized use or abuse of our service may lead to restrictions on your account.<br/><br/>
+
+        <b>Account Responsibility:</b><br/>
+        You are responsible for safeguarding your account credentials and any activity under your account.<br/><br/>
+
+        <b>Intellectual Property:</b><br/>
+        All app content is owned by IPVC MAPS and is protected under intellectual property laws.<br/><br/>
+
+        <b>Limitation of Liability:</b><br/>
+        IPVC MAPS is not liable for any damages or losses arising from the use of our app.
+        ]]>
+    </string>
 </resources>
