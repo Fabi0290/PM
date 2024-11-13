@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Trab</string>
     <string name="name">MAPA IPVC</string>
+    <string name="mapa_entrar">Ver Mapa</string>
+    <string name="empresas">Ver Empresas</string>
 </resources>
