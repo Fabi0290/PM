@@ -7,7 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.trab.dataclass.ListEmpresas
 
+private lateinit var myListEmpresas:ArrayList<ListEmpresas>
 class empresas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +22,18 @@ class empresas : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //ARRAY DE RECICLE VIEW PARA AS EMPRESAS
+        myListEmpresas = ArrayList<ListEmpresas>()
+
+        myListEmpresas.add(ListEmpresas("Borgwarner","avenida 123","viana","borg@ipvc.pt","900000000"))
+        myListEmpresas.add(ListEmpresas("celpower","avenida 1212","viana","pw@ipvc.pt","900000000"))
+        myListEmpresas.add(ListEmpresas("porsche","avenida 23233","viana","ps@ipvc.pt","900000000"))
+
+        val recycler_view: RecyclerView = findViewById(R.id.recycler_view)
+        recycler_view.adapter = NotaAdapter(myListEmpresas)
+        recycler_view.layoutManager = LinearLayoutManager(this)
+
     }
 
     fun inicio(view: View) {

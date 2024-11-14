@@ -30,4 +30,17 @@
         android:layout_alignParentEnd="true"
 
         />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/linha"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@+id/img1"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
 </RelativeLayout>
