@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login"
+    android:id="@+id/signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".signup"
     android:layout_margin="5dp">
 
 
@@ -33,7 +33,7 @@
         android:id="@+id/inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INICIAR SESSÃO"
+        android:text="CRIAR CONTA"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
         />
@@ -46,16 +46,7 @@
         android:hint="Username"
         android:layout_margin="10dp"
         android:layout_below="@+id/inicio"
-        android:paddingEnd="100dp"
         />
-    <CheckBox
-        android:id="@+id/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:layout_alignParentEnd="true"
-        />
-
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -65,19 +56,40 @@
         android:layout_below="@+id/username"
         android:paddingEnd="100dp"
         />
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_alignParentEnd="true"
+        />
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirmar Password"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/password"/>
+    <CheckBox
+        android:id="@+id/check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_alignParentEnd="true"
+        />
 
     <TextView
         android:id="@+id/criar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:text="Não tens uma conta? Criar Aqui"
+        android:layout_below="@+id/password2"
+        android:text="Já tens conta? Entra Aqui"
         android:textColor="@android:color/holo_blue_dark"
         android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
         android:layout_centerHorizontal="true"
-        android:onClick="Signup"
+        android:onClick="login"
         />
     <Button
         android:id="@+id/btnlog"
@@ -86,7 +98,7 @@
         android:layout_below="@+id/criar"
         android:layout_margin="20dp"
         android:backgroundTint="@color/black"
-        android:text="LOGIN">
+        android:text="SIGN-UP">
 
     </Button>
 

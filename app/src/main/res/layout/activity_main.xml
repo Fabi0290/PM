@@ -8,15 +8,6 @@
     tools:context=".MainActivity"
     >
 
-
-    <LinearLayout
-        android:id="@+id/barra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        />
-
-
   <ImageButton
       android:id="@+id/log"
       android:layout_width="50dp"

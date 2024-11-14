@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun termos(view: View) {
-
         val intent= Intent(applicationContext, policies::class.java)
         startActivity(intent)
     }

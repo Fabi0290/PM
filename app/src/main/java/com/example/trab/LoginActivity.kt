@@ -22,5 +22,13 @@ class LoginActivity : AppCompatActivity() {
     fun inicio(view: View) {
         val intent= Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
+        //animação transição
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
+
+    fun Signup(view: View) {
+        val intent= Intent(applicationContext, signup::class.java)
+        startActivity(intent)
     }
 }
