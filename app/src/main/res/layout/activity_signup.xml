@@ -54,7 +54,7 @@
         android:hint="Password"
         android:layout_margin="10dp"
         android:layout_below="@+id/username"
-        android:paddingEnd="100dp"
+        android:paddingEnd="50dp"
         />
     <CheckBox
         android:id="@+id/check"

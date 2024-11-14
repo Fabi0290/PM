@@ -24,7 +24,7 @@ class signup : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //função para ver e desver palavra pass 1
+        //FUNCAO PARA VER E DESVER A PALAVRA-PASS 1
         val passwordEditText = findViewById<EditText>(R.id.password)
         val showPasswordButton = findViewById<CheckBox>(R.id.check)
         passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
@@ -41,7 +41,7 @@ class signup : AppCompatActivity() {
             // Move o cursor para o final do texto
             passwordEditText.setSelection(passwordEditText.text.length)
         }
-        //função para ver e desver palavra pass 2
+        //FUNCAO PARA VER E DESVER A PALAVRA-PASS 2
         val passwordEditText2 = findViewById<EditText>(R.id.password2)
         val showPasswordButton2 = findViewById<CheckBox>(R.id.check2)
         passwordEditText2.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
