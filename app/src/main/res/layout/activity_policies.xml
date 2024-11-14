@@ -5,7 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_policies"
-    tools:context=".policies">
+    tools:context=".policies"
+    android:background="#DCDCDC"
+    >
 
     <ImageView
         android:id="@+id/icon"

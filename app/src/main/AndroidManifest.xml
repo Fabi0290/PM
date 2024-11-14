@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Trab"
         tools:targetApi="31">
         <activity
+            android:name=".empresas"
+            android:exported="false" />
+        <activity
+            android:name=".data.empresas"
+            android:exported="false" />
+        <activity
+            android:name=".mapa"
+            android:exported="false" />
+        <activity
             android:name=".signup"
             android:exported="false" />
         <activity

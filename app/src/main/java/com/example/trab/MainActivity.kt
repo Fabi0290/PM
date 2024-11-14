@@ -32,4 +32,14 @@ class MainActivity : AppCompatActivity() {
         val intent= Intent(applicationContext, policies::class.java)
         startActivity(intent)
     }
+
+    fun mapa(view: View) {
+        val intent= Intent(applicationContext, mapa::class.java)
+        startActivity(intent)
+    }
+
+    fun empresas(view: View) {
+        val intent= Intent(applicationContext, empresas::class.java)
+        startActivity(intent)
+    }
 }

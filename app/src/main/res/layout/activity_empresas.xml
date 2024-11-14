@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_empresas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".empresas"
+    android:background="#DCDCDC"
+    >
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/img_1"
+        android:clickable="true"
+        android:onClick="inicio"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        />
+
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/icon2"
+        android:layout_alignParentEnd="true"
+
+        />
+</RelativeLayout>
