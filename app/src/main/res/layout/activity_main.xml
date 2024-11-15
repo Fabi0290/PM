@@ -42,23 +42,26 @@
     <Button
         android:id="@+id/vermapa"
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/mapa_entrar"
         android:onClick="mapa"
+        android:background="@drawable/cantos"
         />
 
     <Button
         android:id="@+id/verempresa"
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/vermapa"
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
         android:text="@string/empresas"
         android:onClick="empresas"
+        android:background="@drawable/cantos"
+        android:layout_marginTop="5dp"
     />
 
     <TextView
