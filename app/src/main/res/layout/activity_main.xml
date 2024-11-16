@@ -47,9 +47,9 @@
 
     <ImageView
         android:id="@+id/img1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/imagem1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/icon2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         />
@@ -62,6 +62,7 @@
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
         android:text="@string/mapa_entrar"
+        android:onClick="mapa"
         />
 
     <Button
@@ -72,6 +73,7 @@
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
         android:text="@string/empresas"
+        android:onClick="empresas"
     />
 
     <TextView
