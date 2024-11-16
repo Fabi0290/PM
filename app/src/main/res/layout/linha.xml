@@ -36,7 +36,7 @@
         android:id="@+id/info_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/telefone"
+        android:layout_below="@+id/btn_mais"
         android:visibility="gone"
         android:orientation="vertical"
         android:paddingTop="10dp">
