@@ -2,6 +2,8 @@ package com.example.trab
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.R
@@ -11,53 +13,38 @@ import java.util.ArrayList
 class NotaAdapter(private val dataSet: ArrayList<ListEmpresas>) :
     RecyclerView.Adapter<NotaAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder)
-     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        val name: TextView
-        val endereco: TextView
-        val cidade: TextView
-        val email : TextView
-        val telefone : TextView
-
-
-        init {
-            // Define click listener for the ViewHolder's View
-            name = view.findViewById(R.id.name)
-            endereco = view.findViewById(R.id.endereco)
-            cidade= view.findViewById(R.id.cidade)
-            email= view.findViewById(R.id.email)
-            telefone= view.findViewById(R.id.telefone)
-
-        }
+        val name: TextView = view.findViewById(R.id.name)
+        val cidade: TextView = view.findViewById(R.id.cidade)
+        val btnMais: Button = view.findViewById(R.id.btn_mais)
+        val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
     }
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.linha, viewGroup, false)
-
         return ViewHolder(view)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        val empresa = dataSet[position]
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.name.text = dataSet[position].name
-        viewHolder.endereco.text = dataSet[position].endereco
-        viewHolder.cidade.text = dataSet[position].cidade
-        viewHolder.email.text = dataSet[position].email
-        viewHolder.telefone.text = dataSet[position].telefone
+        // Preencher os dados
+        viewHolder.name.text = empresa.name
+        viewHolder.cidade.text = empresa.cidade
 
+        // Alternar visibilidade do container
+        viewHolder.btnMais.setOnClickListener {
+            if (viewHolder.infoContainer.visibility == View.GONE) {
+                viewHolder.infoContainer.visibility = View.VISIBLE
+                viewHolder.btnMais.text = "Mostrar menos"
+            } else {
+                viewHolder.infoContainer.visibility = View.GONE
+                viewHolder.btnMais.text = "Saber mais"
+            }
+        }
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
-
 }
+

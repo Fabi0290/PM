@@ -30,6 +30,15 @@
         android:layout_alignParentEnd="true"
 
         />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img1"
+        app:queryHint="Pesquisar aqui">
+    </androidx.appcompat.widget.SearchView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -39,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/linha"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_below="@+id/img1"
+        android:layout_below="@+id/search"
         >
     </androidx.recyclerview.widget.RecyclerView>
 
