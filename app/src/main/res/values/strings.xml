@@ -60,4 +60,5 @@
     <string name="have_acc">Already have an account? Log in here</string>
     <string name="pesquisa">Search Here</string>
     <string name="saber">More</string>
+    <string name="title_activity_maps">Maps</string>
 </resources>

@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mapa(view: View) {
-        val intent= Intent(applicationContext, mapa::class.java)
+        val intent= Intent(applicationContext, Maps::class.java)
         startActivity(intent)
     }
 
