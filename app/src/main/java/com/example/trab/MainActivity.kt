@@ -46,5 +46,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun cursos(view: View) {
+        val intent= Intent(applicationContext, Cursos::class.java)
+        startActivity(intent)
+
+    }
+
 
 }

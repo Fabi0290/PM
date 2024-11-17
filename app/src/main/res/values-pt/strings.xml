@@ -15,4 +15,6 @@
     <string name="have_acc">Já tens conta? Entra Aqui</string>
     <string name="pesquisa">Pesquisa Aqui</string>
     <string name="saber">Saber Mais</string>
+    <string name="title_activity_maps">Mapas</string>
+    <string name="cursos">Ver Cursos</string>
 </resources>

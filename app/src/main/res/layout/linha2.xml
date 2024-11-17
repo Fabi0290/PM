@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linha2"
+    android:layout_margin="5dp"
+    android:background="@drawable/list"
+    >
+
+
+    <TextView
+        android:id="@+id/curso_name"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Engenharia de redes e sistemas de computadores"
+        android:textSize="18dp"
+        android:paddingEnd="30dp"
+        />
+
+    <TextView
+        android:id="@+id/curso_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/curso_name"
+        android:textStyle="bold"
+        android:text="Ciencias e tecnologia"
+        />
+
+    <Button
+        android:id="@+id/btn_mais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saber"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/cantos"
+        />
+
+    <LinearLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_mais"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/curso_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="14.5" />
+
+        <TextView
+            android:id="@+id/curso_coordenador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Joao paulo" />
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
