@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_perfil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".perfil">
+
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/icon2" />
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:onClick="inicio"
+        app:srcCompat="@drawable/img_1" />
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/img"
+        android:background="@drawable/circle_shape"
+        android:contentDescription="Foto do perfil" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Nome do Utilizador"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333" />
+
+
+    <ImageView
+        android:id="@+id/logout_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@id/profile_name"
+        android:layout_toEndOf="@id/profile_name"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/img_2"
+        android:contentDescription="Logout"
+        android:clickable="true"
+        android:focusable="true" />
+
+
+    <ImageView
+        android:id="@+id/favorites_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/profile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_3"
+        android:contentDescription="Empresas favoritas"
+        android:clickable="true"
+        android:focusable="true" />
+
+</RelativeLayout>
