@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         app:srcCompat="@drawable/img_1"
         android:layout_margin="10dp"
         android:clickable="true"
@@ -33,6 +33,7 @@
         android:layout_height="match_parent"
         android:text="@string/policies"
         android:layout_below="@+id/icon"
+        android:layout_marginLeft="30dp"
         />
 
 </RelativeLayout>

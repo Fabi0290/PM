@@ -26,9 +26,9 @@ class empresas : AppCompatActivity() {
         //ARRAY DE RECICLE VIEW PARA AS EMPRESAS
         myListEmpresas = ArrayList<ListEmpresas>()
 
-        myListEmpresas.add(ListEmpresas("Borgwarner","avenida 123","viana","borg@ipvc.pt","900000000"))
-        myListEmpresas.add(ListEmpresas("celpower","avenida 1212","viana","pw@ipvc.pt","900000000"))
-        myListEmpresas.add(ListEmpresas("porsche","avenida 23233","viana","ps@ipvc.pt","900000000"))
+        myListEmpresas.add(ListEmpresas("Borgwarner","avenida 123","Viana do castelo","borg@ipvc.pt","900000000"))
+        myListEmpresas.add(ListEmpresas("celpower","avenida 1212","Viana do castelo","pw@ipvc.pt","900000000"))
+        myListEmpresas.add(ListEmpresas("porsche","avenida 23233","Viana do castelo","ps@ipvc.pt","900000000"))
 
         val recycler_view: RecyclerView = findViewById(R.id.recycler_view)
         recycler_view.adapter = NotaAdapter(myListEmpresas)

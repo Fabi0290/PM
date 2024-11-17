@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="16dp"/> <!-- Define os cantos curvos -->
+    <solid android:color="#b8b8b8"/> <!-- Cor do fundo (preto neste exemplo) -->
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp"
+
+        />
+</shape>

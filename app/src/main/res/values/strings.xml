@@ -51,4 +51,13 @@
         IPVC MAPS is not liable for any damages or losses arising from the use of our app.
         ]]>
     </string>
+    <string name="iniciar_ses">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="pass">Password</string>
+    <string name="nao_conta">Don\'t have an account? Create it here</string>
+    <string name="create_acc">SIGN-UP</string>
+    <string name="conf_pass">Confirm Password</string>
+    <string name="have_acc">Already have an account? Log in here</string>
+    <string name="pesquisa">Search Here</string>
+    <string name="saber">More</string>
 </resources>

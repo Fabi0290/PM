@@ -34,7 +34,7 @@
         android:id="@+id/inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INICIAR SESSÃO"
+        android:text="@string/iniciar_ses"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
         />
@@ -44,17 +44,19 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="@string/username"
         android:layout_margin="10dp"
         android:layout_below="@+id/inicio"
         android:paddingEnd="100dp"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
         />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/pass"
         android:layout_margin="10dp"
         android:layout_below="@+id/username"
         android:paddingEnd="50dp"
@@ -72,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:text="Não tens uma conta? Criar Aqui"
+        android:text="@string/nao_conta"
         android:textColor="@android:color/holo_blue_dark"
         android:textStyle="bold"
         android:clickable="true"
@@ -87,7 +89,9 @@
         android:layout_below="@+id/criar"
         android:layout_margin="20dp"
         android:backgroundTint="@color/black"
-        android:text="LOGIN">
+        android:text="@string/iniciar_ses"
+        android:background="@drawable/cantos"
+        >
 
     </Button>
 

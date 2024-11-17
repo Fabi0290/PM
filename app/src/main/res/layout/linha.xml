@@ -4,8 +4,9 @@
     android:layout_height="wrap_content"
     android:id="@+id/linha"
     android:layout_margin="10dp"
-    android:background="#ADD8E6">
+    android:background="@drawable/list"
     >
+
 
     <TextView
         android:id="@+id/name"
@@ -20,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginLeft="50dp"
         android:textStyle="bold"
         android:text=" VIANA"
         />
@@ -29,8 +29,10 @@
         android:id="@+id/btn_mais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saber mais"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/saber"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/cantos"
+        />
 
     <LinearLayout
         android:id="@+id/info_container"

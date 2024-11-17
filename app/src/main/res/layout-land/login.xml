@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="#DCDCDC"
-    android:layout_margin="15dp"
+    android:paddingLeft="30dp"
     >
 
 
@@ -35,9 +35,9 @@
         android:id="@+id/inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INICIAR SESSÃO"
+        android:text="@string/iniciar_ses"
         android:layout_below="@+id/img1"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="100dp"
         />
 
 
@@ -45,21 +45,20 @@
         android:id="@+id/username"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:layout_margin="10dp"
+        android:hint="@string/username"
         android:layout_below="@+id/inicio"
         android:inputType="text"
         android:imeOptions="actionDone"
-
+        android:layout_marginLeft="100dp"
         />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/pass"
         android:inputType="textPassword"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="100dp"
         android:layout_below="@+id/username"
         android:paddingEnd="50dp"
         />
@@ -76,23 +75,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:text="Não tens uma conta? Criar Aqui"
+        android:text="@string/nao_conta"
         android:textColor="@android:color/holo_blue_dark"
         android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp"
         android:onClick="Signup"
         />
     <Button
         android:id="@+id/btnlog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
         android:backgroundTint="@color/black"
-        android:layout_toRightOf="@+id/check"
-        android:layout_centerInParent="true"
-        android:text="LOGIN">
+        android:layout_toRightOf="@+id/username"
+        android:layout_below="@+id/inicio"
+        android:text="@string/iniciar_ses"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/cantos"
+        >
 
     </Button>
 

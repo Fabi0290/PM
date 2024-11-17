@@ -6,7 +6,9 @@
     android:id="@+id/main_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".perfil">
+    tools:context=".perfil"
+    android:background="#DCDCDC"
+    >
 
     <ImageView
         android:id="@+id/img1"
@@ -74,5 +76,16 @@
         android:contentDescription="Empresas favoritas"
         android:clickable="true"
         android:focusable="true" />
+    <TextView
+        android:id="@+id/favorites_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favoritos"
+        android:layout_toRightOf="@+id/favorites_icon"
+        android:layout_below="@id/profile_name"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
 
 </RelativeLayout>

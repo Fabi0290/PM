@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#DCDCDC">
+    android:background="#DCDCDC"
+    android:paddingLeft="30dp"
+    >
 
 
     <ImageView
@@ -15,15 +17,6 @@
         android:layout_height="100dp"
         app:srcCompat="@drawable/imagem1"
         />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/name"
-        android:layout_marginTop="15dp"
-        android:textStyle="bold" />
 
   <ImageButton
       android:id="@+id/log"
@@ -41,8 +34,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:srcCompat="@drawable/icon2"
-        android:layout_below="@+id/img1"
-        android:layout_margin="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="150dp"
         />
 
     <LinearLayout
@@ -50,30 +43,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/img2"
         android:layout_margin="50dp"
         >
         <Button
             android:id="@+id/vermapa"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_below="@id/img1"
             android:backgroundTint="@color/black"
             android:layout_centerHorizontal="true"
             android:text="@string/mapa_entrar"
             android:onClick="mapa"
+            android:background="@drawable/cantos"
             />
 
         <Button
             android:id="@+id/verempresa"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_below="@id/vermapa"
             android:backgroundTint="@color/black"
             android:layout_centerHorizontal="true"
             android:text="@string/empresas"
             android:onClick="empresas"
+            android:background="@drawable/cantos"
+            android:layout_marginTop="10dp"
             />
 
 
