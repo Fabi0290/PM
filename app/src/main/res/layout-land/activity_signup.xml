@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".signup"
     android:background="#DCDCDC"
-    android:layout_margin="15dp"
     >
 
 
@@ -18,8 +17,7 @@
         app:srcCompat="@drawable/img_1"
         android:clickable="true"
         android:onClick="inicio"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
+        android:layout_margin="20dp"
         />
 
 
@@ -29,6 +27,7 @@
         android:layout_height="100dp"
         app:srcCompat="@drawable/icon2"
         android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
 
         />
     <TextView
@@ -47,6 +46,8 @@
         android:hint="Username"
         android:layout_margin="8dp"
         android:layout_below="@+id/inicio"
+        android:inputType="text"
+        android:imeOptions="actionDone"
         />
     <EditText
         android:id="@+id/password"
@@ -55,6 +56,7 @@
         android:hint="Password"
         android:layout_margin="8dp"
         android:layout_below="@+id/username"
+        android:inputType="textPassword"
         android:paddingEnd="50dp"
         />
     <CheckBox
@@ -70,6 +72,7 @@
         android:layout_height="wrap_content"
         android:hint="Confirmar Password"
         android:layout_margin="8dp"
+        android:inputType="textPassword"
         android:layout_below="@+id/password"/>
     <CheckBox
         android:id="@+id/check2"
@@ -97,7 +100,6 @@
         android:id="@+id/btnlog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_margin="50dp"
         android:backgroundTint="@color/black"
         android:layout_centerVertical="true"
