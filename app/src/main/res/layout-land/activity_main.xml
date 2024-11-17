@@ -71,6 +71,18 @@
             android:background="@drawable/cantos"
             android:layout_marginTop="10dp"
             />
+        <Button
+            android:id="@+id/cursos"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/verempresa"
+            android:backgroundTint="@color/black"
+            android:layout_centerHorizontal="true"
+            android:text="@string/cursos"
+            android:onClick="cursos"
+            android:background="@drawable/cantos"
+            android:layout_marginTop="5dp"
+            />
 
 
     </LinearLayout>
