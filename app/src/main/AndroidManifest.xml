@@ -39,7 +39,8 @@
             android:exported="false" />
         <activity
             android:name=".dataclass.Perfil"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".empresas"
             android:exported="false" />

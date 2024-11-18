@@ -1,6 +1,8 @@
 package com.example.trab
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,12 @@ class perfil : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    fun inicio(view: View) {
+        val intent= Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        //animação transição
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
