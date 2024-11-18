@@ -53,4 +53,10 @@ class LoginActivity : AppCompatActivity() {
         val intent= Intent(applicationContext, signup::class.java)
         startActivity(intent)
     }
+
+    fun perfil(view: View) {
+
+        val intent= Intent(applicationContext, perfil::class.java)
+        startActivity(intent)
+    }
 }

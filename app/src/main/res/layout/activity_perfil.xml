@@ -32,13 +32,11 @@
         android:id="@+id/profile_image"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_below="@id/icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/img"
         android:background="@drawable/circle_shape"
         android:contentDescription="Foto do perfil" />
-
 
     <TextView
         android:id="@+id/profile_name"
@@ -52,40 +50,103 @@
         android:textStyle="bold"
         android:textColor="#333333" />
 
+    <!-- Parâmetros adicionados com EditTexts -->
+    <LinearLayout
+        android:id="@+id/profile_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/school_edit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Escola"
+            android:text="Nome da Escola"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/course_edit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Curso"
+            android:text="Nome do Curso"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/year_edit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Ano"
+            android:text="Ano Atual"
+            android:inputType="number"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/email_edit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:text="email@exemplo.com"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="start|center_vertical"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/favorites_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_details"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/favorites_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_3"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/fav_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favoritos"
+            android:textSize="17dp"
+            android:layout_toEndOf="@id/favorites_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+    </RelativeLayout>
     <ImageView
         android:id="@+id/logout_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/profile_image"
-        android:layout_toRightOf="@id/profile_name"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
         android:src="@drawable/img_2"
         android:contentDescription="Logout"
-        android:layout_margin="20dp"
         android:clickable="true"
         android:focusable="true" />
-    <ImageView
-        android:id="@+id/favorites_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/profile_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/img_3"
-        android:contentDescription="Empresas favoritas"
-        android:clickable="true"
-        android:focusable="true" />
-    <TextView
-        android:id="@+id/favorites_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favoritos"
-        android:layout_toRightOf="@+id/favorites_icon"
-        android:layout_below="@id/profile_name"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        />
-
 </RelativeLayout>

@@ -91,6 +91,7 @@
         android:backgroundTint="@color/black"
         android:text="@string/iniciar_ses"
         android:background="@drawable/cantos"
+        android:onClick="perfil"
         >
 
     </Button>
