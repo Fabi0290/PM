@@ -14,9 +14,9 @@ class EscolasAdapter(private val escolas: List<Escolas>) :
     RecyclerView.Adapter<EscolasAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val nomeescola: TextView = view.findViewById(R.id.escolas_name)
-        val siglaEscola: TextView = view.findViewById(R.id.escolas_sigla)
-        val numCursos: TextView = view.findViewById(R.id.escolas_num_empresas)
+        val nomeCursos: TextView = view.findViewById(R.id.cursos_name)
+        val sigla: TextView = view.findViewById(R.id.cursos_desc)
+        val empresas: TextView = view.findViewById(R.id.cursos_empresas)
         val btnMais: Button = view.findViewById(R.id.btn_mais)
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
     }
@@ -30,10 +30,15 @@ class EscolasAdapter(private val escolas: List<Escolas>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val escola = escolas[position]
 
-        // Preencher os dados da escola
-        viewHolder.nomeescola.text = escola.nomeEscola
-        viewHolder.siglaEscola.text = escola.sigla
-        viewHolder.numCursos.text = "Cursos: ${escola.cursos.size}"
+        // Exibir apenas o nome do primeiro curso no TextView
+        if (escola.cursos.isNotEmpty()) {
+
+            viewHolder.nomeCursos.text = escola.cursos[0].nome_curso
+            viewHolder.sigla.text = escola.cursos[0].sigla
+            viewHolder.empresas.text = escola.cursos[0].empresas[0].nome
+        } else {
+            viewHolder.nomeCursos.text = "Sem cursos disponíveis"
+        }
 
         // Alternar visibilidade do container
         viewHolder.btnMais.setOnClickListener {

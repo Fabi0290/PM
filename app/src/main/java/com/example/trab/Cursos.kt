@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.adapter.EscolasAdapter
+import com.example.trab.api.Curso
 import com.example.trab.api.EndPoints
 import com.example.trab.api.Escolas
 import com.example.trab.api.ServiceBuilder
@@ -60,7 +61,6 @@ class Cursos : AppCompatActivity() {
 
 
         val recycler_view: RecyclerView = findViewById(R.id.recycler_view2)
-        //recycler_view.adapter = EscolasAdapter()
         recycler_view.layoutManager = LinearLayoutManager(this)
 
     }

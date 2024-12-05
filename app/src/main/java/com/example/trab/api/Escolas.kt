@@ -1,26 +1,30 @@
 package com.example.trab.api
 
+data class Escolas(
+    val id_escola: Int,
+    val nome_escola: String,
+    val sigla: String,
+    val cursos: List<Curso>
+)
+
+data class Curso(
+    val id_curso: Int,
+    val nome_curso: String,
+    val sigla: String,
+    val empresas: List<Empresa>
+)
+
 data class Empresa(
-    val idEmpresa: Int,
+    val id_empresa: Int,
     val nome: String,
     val descricao: String,
     val cidade: String,
     val latitude: Double,
     val longitude: Double,
-    val numAlunos: Int,
-    val numVagas: Int
+    val num_alunos: Int,
+    val num_vagas: Int
 )
 
-data class Curso(
-    val idCurso: Int,
-    val nomeCurso: String,
-    val sigla: String,
-    val empresas: List<Empresa>
-)
 
-data class Escolas(
-    val idEscola: Int,
-    val nomeEscola: String,
-    val sigla: String,
-    val cursos: List<Curso>
-)
+
+
