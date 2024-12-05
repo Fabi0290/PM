@@ -8,17 +8,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.R
-import com.example.trab.dataclass.ListCursos
-import java.util.ArrayList
+import com.example.trab.api.Escolas
 
-class CursosAdapter(private val dataSet: ArrayList<ListCursos>) :
-    RecyclerView.Adapter<CursosAdapter.ViewHolder>() {
+class EscolasAdapter(private val escolas: List<Escolas>) :
+    RecyclerView.Adapter<EscolasAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name: TextView = view.findViewById(R.id.curso_name)
-        val area: TextView = view.findViewById(R.id.curso_area)
-        val media: TextView = view.findViewById(R.id.curso_media)
-        val coordenador: TextView = view.findViewById(R.id.curso_coordenador)
+        val nomeescola: TextView = view.findViewById(R.id.escolas_name)
+        val siglaEscola: TextView = view.findViewById(R.id.escolas_sigla)
+        val numCursos: TextView = view.findViewById(R.id.escolas_num_empresas)
         val btnMais: Button = view.findViewById(R.id.btn_mais)
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
     }
@@ -30,13 +28,12 @@ class CursosAdapter(private val dataSet: ArrayList<ListCursos>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val curso= dataSet[position]
+        val escola = escolas[position]
 
-        // Preencher os dados
-        viewHolder.name.text = curso.curso_name
-        viewHolder.area.text = curso.curso_area
-        viewHolder.media.text = curso.curso_media.toString()
-        viewHolder.coordenador.text = curso.curso_coordenador
+        // Preencher os dados da escola
+        viewHolder.nomeescola.text = escola.nomeEscola
+        viewHolder.siglaEscola.text = escola.sigla
+        viewHolder.numCursos.text = "Cursos: ${escola.cursos.size}"
 
         // Alternar visibilidade do container
         viewHolder.btnMais.setOnClickListener {
@@ -50,6 +47,5 @@ class CursosAdapter(private val dataSet: ArrayList<ListCursos>) :
         }
     }
 
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() = escolas.size
 }
-
