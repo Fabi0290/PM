@@ -9,6 +9,13 @@
     android:background="#DCDCDC"
     >
 
+    <Spinner
+        android:id="@+id/spinner_escolas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/img1"
+        />
 
     <ImageView
         android:id="@+id/icon"
@@ -30,7 +37,7 @@
         android:layout_alignParentEnd="true"
 
         />
-
+<!-->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
@@ -38,6 +45,9 @@
         android:layout_below="@+id/img1"
         app:queryHint="Pesquisar aqui">
     </androidx.appcompat.widget.SearchView>
+
+<!-->
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view2"
@@ -48,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/linha2"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_below="@+id/search"
+        android:layout_below="@+id/spinner_escolas"
         >
     </androidx.recyclerview.widget.RecyclerView>
 

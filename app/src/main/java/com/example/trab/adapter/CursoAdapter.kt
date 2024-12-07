@@ -8,15 +8,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.R
-import com.example.trab.api.Escolas
+import com.example.trab.api.Curso
 
-class EscolasAdapter(private val escolas: List<Escolas>) :
-    RecyclerView.Adapter<EscolasAdapter.ViewHolder>() {
+class CursoAdapter(private val cursos: List<Curso>) :
+    RecyclerView.Adapter<CursoAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val nomeCursos: TextView = view.findViewById(R.id.cursos_name)
-        val sigla: TextView = view.findViewById(R.id.cursos_desc)
-        val empresas: TextView = view.findViewById(R.id.cursos_empresas)
+        val nomeCurso: TextView = view.findViewById(R.id.cursos_name)
+        val siglaCurso: TextView = view.findViewById(R.id.cursos_desc)
+        val empresasCurso: TextView = view.findViewById(R.id.cursos_empresas)
         val btnMais: Button = view.findViewById(R.id.btn_mais)
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
     }
@@ -28,17 +28,12 @@ class EscolasAdapter(private val escolas: List<Escolas>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val escola = escolas[position]
+        val curso = cursos[position]
 
-        // Exibir apenas o nome do primeiro curso no TextView
-        if (escola.cursos.isNotEmpty()) {
-
-            viewHolder.nomeCursos.text = escola.cursos[0].nome_curso
-            viewHolder.sigla.text = escola.cursos[0].sigla
-            viewHolder.empresas.text = escola.cursos[0].empresas[0].nome
-        } else {
-            viewHolder.nomeCursos.text = "Sem cursos disponíveis"
-        }
+        // Exibir os detalhes do curso
+        viewHolder.nomeCurso.text = curso.nome_curso
+        viewHolder.siglaCurso.text = curso.sigla
+        viewHolder.empresasCurso.text = curso.empresas.firstOrNull()?.nome ?: "N/D"
 
         // Alternar visibilidade do container
         viewHolder.btnMais.setOnClickListener {
@@ -52,5 +47,5 @@ class EscolasAdapter(private val escolas: List<Escolas>) :
         }
     }
 
-    override fun getItemCount() = escolas.size
+    override fun getItemCount() = cursos.size
 }
