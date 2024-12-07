@@ -13,7 +13,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Engenharia de redes e sistemas de computadores"
+        android:text="Engenha"
         android:textSize="18dp"
         android:paddingEnd="30dp"
         />
