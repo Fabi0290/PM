@@ -5,6 +5,12 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/black</item>
     </style>
+    <style name="AppTheme.CustomSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">#FFEB3D</item>
+        <item name="android:popupBackground">#FFF3E0</item>
+        <item name="android:dropDownHorizontalOffset">8dp</item>
+        <item name="android:dropDownVerticalOffset">8dp</item>
+    </style>
 
     <style name="Theme.Trab" parent="Base.Theme.Trab" />
 </resources>

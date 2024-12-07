@@ -39,10 +39,8 @@ class CursoAdapter(private val cursos: List<Curso>) :
         viewHolder.btnMais.setOnClickListener {
             if (viewHolder.infoContainer.visibility == View.GONE) {
                 viewHolder.infoContainer.visibility = View.VISIBLE
-                viewHolder.btnMais.text = "Mostrar menos"
             } else {
                 viewHolder.infoContainer.visibility = View.GONE
-                viewHolder.btnMais.text = "Saber mais"
             }
         }
     }

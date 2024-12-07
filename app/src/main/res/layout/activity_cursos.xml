@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown"
         android:layout_below="@+id/img1"
+        android:layout_margin="10dp"
         />
 
     <ImageView
