@@ -44,19 +44,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_mais"
         android:visibility="gone"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:paddingTop="10dp">
 
         <TextView
             android:id="@+id/cursos_empresas"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="14.5" />
 
-
+        <Button
+            android:id="@+id/btn_empresas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="irEmpresas"
+            android:layout_marginEnd="16dp" />
     </LinearLayout>
-
-
 
 
 

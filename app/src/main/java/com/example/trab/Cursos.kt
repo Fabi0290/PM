@@ -60,8 +60,8 @@ class Cursos : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val cursos = response.body() ?: emptyList()
 
-                    // Configurar o Adapter apenas com os dados de cursos
-                    recyclerView.adapter = CursoAdapter(cursos)
+                    // Passar o ID da escola para o Adapter
+                    recyclerView.adapter = CursoAdapter(cursos, escolaId)
                 } else {
                     Toast.makeText(this@Cursos, "Erro ao buscar cursos", Toast.LENGTH_SHORT).show()
                 }
@@ -73,9 +73,15 @@ class Cursos : AppCompatActivity() {
         })
     }
 
+
     fun inicio(view: View) {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+    fun irEmpresas(view: View) {
+        // Lógica que será executada quando o botão for clicado
+        val intent = Intent(applicationContext, empresas::class.java)
+        startActivity(intent)
     }
 }

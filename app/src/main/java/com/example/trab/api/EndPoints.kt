@@ -12,6 +12,7 @@ interface EndPoints {
     fun getEscolasById(@Path("id") id: Int): Call<Escolas>
     @GET("/escolas/{id}/cursos")
     fun getCurso(@Path("id") id: Int): Call<List<Curso>>
-    @GET("/escolas/empresas")
+    @GET("/escolas/{id}/cursos/{id}/empresas")
     fun getEmpresas(): Call<List<Empresa>>
+
 }

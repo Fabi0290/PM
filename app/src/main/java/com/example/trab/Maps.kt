@@ -2,6 +2,7 @@ package com.example.trab
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -99,5 +100,12 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
                 ).show()
             }
         })
+    }
+
+
+    fun inicio(view: View) {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
