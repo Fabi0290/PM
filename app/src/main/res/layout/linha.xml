@@ -5,6 +5,7 @@
     android:id="@+id/linha"
     android:layout_margin="10dp"
     android:background="@drawable/list"
+    android:elevation="50dp"
     >
 
 
@@ -44,16 +45,23 @@
         android:paddingTop="10dp">
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/empresa_descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email: exemplo@empresa.com" />
 
         <TextView
-            android:id="@+id/telefone"
+            android:id="@+id/empresa_num_alunos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Telefone: 123456789" />
+            android:text="Email: exemplo@empresa.com" />
+
+        <TextView
+            android:id="@+id/empresa_num_vagas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: exemplo@empresa.com" />
+
     </LinearLayout>
 
 

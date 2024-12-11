@@ -64,7 +64,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
 
     private fun fetchEmpresas() {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getEmpresas()
+        val call = request.getTodasEmpresas()
 
         call.enqueue(object : Callback<List<Empresa>> {
             override fun onResponse(call: Call<List<Empresa>>, response: Response<List<Empresa>>) {
