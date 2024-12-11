@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.R
@@ -20,8 +21,8 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
         val descricao: TextView = view.findViewById(R.id.empresa_descricao)
         val numAlunos: TextView = view.findViewById(R.id.empresa_num_alunos)
         val numVagas: TextView = view.findViewById(R.id.empresa_num_vagas)
-        val btnMais: Button = view.findViewById(R.id.btn_mais)
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
+        val Container: RelativeLayout = view.findViewById(R.id.linha)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -38,13 +39,12 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
         viewHolder.numAlunos.text = empresa.num_alunos.toString()
         viewHolder.numVagas.text = empresa.num_vagas.toString()
 
-        viewHolder.btnMais.setOnClickListener {
+        // Alternar visibilidade do container ao clicar na área inteira
+        viewHolder.Container.setOnClickListener {
             if (viewHolder.infoContainer.visibility == View.GONE) {
                 viewHolder.infoContainer.visibility = View.VISIBLE
-                viewHolder.btnMais.text = "Mostrar menos"
             } else {
                 viewHolder.infoContainer.visibility = View.GONE
-                viewHolder.btnMais.text = "Saber mais"
             }
         }
     }
