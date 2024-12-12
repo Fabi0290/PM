@@ -9,54 +9,74 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Nome da Empresa -->
-        <TextView
-            android:id="@+id/empresa_nome"
+        <!-- Retângulo para detalhes da empresa -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:orientation="vertical"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
-        <!-- Descrição -->
-        <TextView
-            android:id="@+id/empresa_descricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            <!-- Nome da Empresa -->
+            <TextView
+                android:id="@+id/empresa_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:text="Nome da Empresa" />
 
-        <!-- Cidade -->
-        <TextView
-            android:id="@+id/empresa_cidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            <!-- Descrição -->
+            <TextView
+                android:id="@+id/empresa_descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"
+                android:text="Descrição da Empresa" />
 
-        <!-- Número de Alunos -->
-        <TextView
-            android:id="@+id/empresa_num_alunos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            <!-- Cidade -->
+            <TextView
+                android:id="@+id/empresa_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"
+                android:text="Cidade: Nome da Cidade" />
 
-        <!-- Número de Vagas -->
-        <TextView
-            android:id="@+id/empresa_num_vagas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:paddingBottom="16dp" />
+            <!-- Número de Alunos -->
+            <TextView
+                android:id="@+id/empresa_num_alunos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"
+                android:text="Número de Alunos: 50" />
 
-        <!-- Botão de Favoritar -->
-        <Button
-            android:id="@+id/btn_favoritar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicionar aos Favoritos"
-            android:padding="10dp" />
+            <!-- Número de Vagas -->
+            <TextView
+                android:id="@+id/empresa_num_vagas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"
+                android:text="Número de Vagas: 10" />
+
+        </LinearLayout>
+
+        <!-- Ícone de coração para favoritar -->
+        <ImageView
+            android:id="@+id/icon_favoritar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_3"
+            android:layout_gravity="center"
+            android:contentDescription="Favoritar"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true" />
 
         <!-- Espaço para comentários -->
         <TextView

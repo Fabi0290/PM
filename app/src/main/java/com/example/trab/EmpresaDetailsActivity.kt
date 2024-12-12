@@ -31,11 +31,9 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         binding.empresaNumVagas.text = "Vagas disponíveis: $numVagas"
 
         // Configurar botão de adicionar aos favoritos
-        binding.btnFavoritar.setOnClickListener {
-            Toast.makeText(this, "$nome adicionada aos favoritos!", Toast.LENGTH_SHORT).show()
-        }
 
-        // Configuração para comentários (simples Toast de exemplo)
+
+        // Configuração para comentários
         binding.btnEnviarComentario.setOnClickListener {
             val comentario = binding.inputComentario.text.toString()
             if (comentario.isNotEmpty()) {
