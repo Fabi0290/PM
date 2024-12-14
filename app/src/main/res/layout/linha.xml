@@ -37,6 +37,7 @@
         android:orientation="vertical"
         android:paddingTop="10dp">
 
+        <!--JA NAO FAZEM NADA!-->
         <TextView
             android:id="@+id/empresa_descricao"
             android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 package com.example.trab
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -43,5 +45,11 @@ class EmpresaDetailsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Escreva um comentário antes de enviar", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun verMapa(view: View) {
+        val intent = Intent(applicationContext, Maps::class.java)
+        intent.putExtra("nome", binding.empresaNome.text.toString())
+        startActivity(intent)
     }
 }

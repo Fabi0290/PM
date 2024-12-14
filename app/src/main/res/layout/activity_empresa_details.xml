@@ -2,21 +2,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:orientation="vertical">
+    android:background="#DCDCDC"
+    >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/img_1"
+            android:clickable="true"
+            android:onClick="inicio"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            />
 
         <!-- Retângulo para detalhes da empresa -->
         <LinearLayout
+            android:id="@+id/caixa1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/rounded_rectangle"
             android:padding="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:layout_below="@+id/icon"
+            android:layout_marginLeft="0dp"
+            >
 
             <!-- Nome da Empresa -->
             <TextView
@@ -63,29 +77,48 @@
                 android:textSize="16sp"
                 android:paddingBottom="8dp"
                 android:text="Número de Vagas: 10" />
-
         </LinearLayout>
 
+        <Button
+            android:id="@+id/ver_mapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver No Mapa"
+            android:textStyle="bold|italic"
+            android:textSize="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:onClick="verMapa"
+            android:layout_below="@id/caixa1"
+            android:layout_marginLeft="-25dp"
+            />
+
         <!-- Ícone de coração para favoritar -->
-        <ImageView
+        <ImageButton
             android:id="@+id/icon_favoritar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/img_3"
-            android:layout_gravity="center"
+            android:layout_margin="15dp"
             android:contentDescription="Favoritar"
             android:padding="10dp"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            android:background="?attr/selectableItemBackground"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
         <!-- Espaço para comentários -->
         <TextView
+            android:id="@+id/comentarios_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Comentários"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:paddingTop="16dp" />
+            android:paddingTop="16dp"
+            android:layout_below="@id/ver_mapa" />
 
         <!-- Input de Comentário -->
         <EditText
@@ -94,7 +127,9 @@
             android:layout_height="wrap_content"
             android:hint="Escreva um comentário"
             android:padding="10dp"
-            android:background="#DDDDDD" />
+            android:background="#c2c2c2"
+            android:layout_below="@id/comentarios_titulo"
+            android:layout_marginTop="8dp" />
 
         <!-- Botão de Enviar Comentário -->
         <Button
@@ -103,6 +138,9 @@
             android:layout_height="wrap_content"
             android:text="Enviar Comentário"
             android:padding="10dp"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
+            android:layout_below="@id/input_comentario"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/cantos"
+            />
+    </RelativeLayout>
 </ScrollView>

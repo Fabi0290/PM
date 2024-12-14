@@ -24,11 +24,17 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
+    // Variável para armazenar o nome da empresa selecionada
+    private var nomeEmpresaSelecionada: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Recuperar o nome da empresa passada pela Intent
+        nomeEmpresaSelecionada = intent.getStringExtra("nome")
 
         // Initialize the SupportMapFragment
         val mapFragment = supportFragmentManager
@@ -79,8 +85,13 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
                                     .title(empresa.nome)
                                     .snippet("${empresa.descricao} - ${empresa.cidade}")
                             )
-                            // Armazena os dados da empresa no marcador
                             marker?.tag = empresa
+
+                            // Centralizar na empresa selecionada, se o nome corresponder
+                            if (empresa.nome == nomeEmpresaSelecionada) {
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,15f))
+                                marker?.showInfoWindow() // Mostra o InfoWindow automaticamente
+                            }
                         }
                     }
                 } else {
@@ -101,7 +112,6 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
-
 
     fun inicio(view: View) {
         val intent = Intent(applicationContext, MainActivity::class.java)
