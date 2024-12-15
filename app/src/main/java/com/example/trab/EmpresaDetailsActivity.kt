@@ -52,4 +52,8 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         intent.putExtra("nome", binding.empresaNome.text.toString())
         startActivity(intent)
     }
+
+    fun back(view: View) {
+        finish()
+    }
 }

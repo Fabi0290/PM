@@ -15,7 +15,7 @@
             android:layout_height="32dp"
             android:src="@drawable/img_1"
             android:clickable="true"
-            android:onClick="inicio"
+            android:onClick="back"
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             />
@@ -141,6 +141,7 @@
             android:layout_below="@id/input_comentario"
             android:layout_marginTop="8dp"
             android:background="@drawable/cantos"
+
             />
     </RelativeLayout>
 </ScrollView>
