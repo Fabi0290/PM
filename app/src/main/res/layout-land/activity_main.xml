@@ -60,22 +60,10 @@
             />
 
         <Button
-            android:id="@+id/verempresa"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/vermapa"
-            android:backgroundTint="@color/black"
-            android:layout_centerHorizontal="true"
-            android:text="@string/empresas"
-            android:onClick="empresas"
-            android:background="@drawable/cantos"
-            android:layout_marginTop="10dp"
-            />
-        <Button
             android:id="@+id/cursos"
             android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_below="@id/verempresa"
+            android:layout_below="@id/vermapa"
             android:backgroundTint="@color/black"
             android:layout_centerHorizontal="true"
             android:text="@string/cursos"

@@ -47,9 +47,8 @@ class Cursos : AppCompatActivity() {
                 val selectedEscolaId = escolasIds[position]
                 fetchCursos(selectedEscolaId, request, recyclerView)
             }
-
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Opcional: Ação caso nada seja selecionado
+                // Ação caso nada seja selecionado
             }
         })
     }
