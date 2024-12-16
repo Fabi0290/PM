@@ -67,8 +67,6 @@ class empresas : AppCompatActivity() {
     }
 
     fun inicio(view: View) {
-        val intent = Intent(applicationContext, Cursos::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+      finish()
     }
 }

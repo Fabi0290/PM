@@ -59,6 +59,10 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
                     putExtra("cidade", empresa.cidade)
                     putExtra("num_alunos", empresa.num_alunos)
                     putExtra("num_vagas", empresa.num_vagas)
+                    putExtra("setor", empresa.setor)
+                    putExtra("taxa", empresa.taxa_aceitacao)
+                    putExtra("ano_criacao", empresa.ano_criacao)
+                    putExtra("duracao_estagio", empresa.duracao_estagio)
                 }
                 startActivity(intent)
             }
