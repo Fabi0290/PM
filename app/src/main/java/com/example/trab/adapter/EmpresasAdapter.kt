@@ -20,6 +20,11 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
         val descricao: TextView = view.findViewById(R.id.empresa_descricao)
         val numAlunos: TextView = view.findViewById(R.id.empresa_num_alunos)
         val numVagas: TextView = view.findViewById(R.id.empresa_num_vagas)
+        //val Setor: TextView = view.findViewById(R.id.setor)
+        //val Taxa: TextView = view.findViewById(R.id.taxa_ac)
+        //val Ano: TextView = view.findViewById(R.id.ano)
+        //val Duracao: TextView = view.findViewById(R.id.duracao)
+
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
         val container: RelativeLayout = view.findViewById(R.id.linha)
     }
@@ -37,6 +42,11 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
         viewHolder.name.text = empresa.nome
         viewHolder.cidade.text = empresa.cidade
         viewHolder.descricao.text = empresa.descricao
+       // viewHolder.Setor.text = empresa.setor
+       // viewHolder.Taxa.text = empresa.taxa_aceitação.toString()
+        //viewHolder.Ano.text = empresa.ano_criacao.toString()
+        //viewHolder.Duracao.text = empresa.duracao_estagios
+
         viewHolder.numAlunos.text = "Alunos: ${empresa.num_alunos}"
         viewHolder.numVagas.text = "Vagas: ${empresa.num_vagas}"
 
@@ -58,6 +68,11 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
                 putExtra("cidade", empresa.cidade)
                 putExtra("num_alunos", empresa.num_alunos)
                 putExtra("num_vagas", empresa.num_vagas)
+                putExtra("setor", empresa.setor)
+                putExtra("taxa", empresa.taxa_aceitacao)
+                putExtra("ano_criacao", empresa.ano_criacao)
+                putExtra("duracao_estagio", empresa.duracao_estagio)
+
             }
             context.startActivity(intent)
         }

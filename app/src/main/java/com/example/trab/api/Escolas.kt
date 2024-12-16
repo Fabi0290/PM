@@ -11,6 +11,10 @@ data class Curso(
     val id_curso: Int,
     val nome_curso: String,
     val sigla: String,
+    val setor: String,
+    val coordenador:String,
+    val num_alunos: Int,
+    val num_estagios:Int,
     val empresas: List<Empresa>
 )
 
@@ -22,7 +26,11 @@ data class Empresa(
     val latitude: Double,
     val longitude: Double,
     val num_alunos: Int,
-    val num_vagas: Int
+    val num_vagas: Int,
+    val taxa_aceitacao: Int,
+    val setor:String,
+    val ano_criacao:Int,
+    val duracao_estagio:String
 )
 
 

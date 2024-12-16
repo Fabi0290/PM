@@ -24,6 +24,11 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         val cidade = intent.getStringExtra("cidade")
         val numAlunos = intent.getIntExtra("num_alunos", 0)
         val numVagas = intent.getIntExtra("num_vagas", 0)
+        val Setor = intent.getStringExtra("setor")
+        val Taxa = intent.getIntExtra("taxa",0)
+        val Ano= intent.getIntExtra("ano_criacao", 0)
+        val Duracao = intent.getStringExtra("duracao_estagio")
+
 
         // Configura os TextViews com os dados
         binding.empresaNome.text = nome
@@ -31,6 +36,10 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         binding.empresaCidade.text = "Cidade: $cidade"
         binding.empresaNumAlunos.text = "Alunos que estagiaram: $numAlunos"
         binding.empresaNumVagas.text = "Vagas disponíveis: $numVagas"
+        binding.setor.text = "Setor: "+ Setor
+        binding.taxaAc.text = "Taxa aceitação: $Taxa%"
+        binding.ano.text = "Ano fundação: $Ano"
+        binding.duracao.text = "Duração: "+ Duracao
 
         // Configurar botão de adicionar aos favoritos
 

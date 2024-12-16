@@ -7,9 +7,7 @@
     android:background="@drawable/list"
     android:elevation="50dp"
     android:clickable="true"
-    android:focusable="true"
-    >
-
+    android:focusable="true">
 
     <TextView
         android:id="@+id/cursos_name"
@@ -17,9 +15,8 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Engenha"
-        android:textSize="18dp"
-        android:paddingEnd="30dp"
-        />
+        android:textSize="18sp"
+        android:paddingEnd="30dp" />
 
     <TextView
         android:id="@+id/cursos_desc"
@@ -27,10 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursos_name"
         android:textStyle="bold"
-        android:text="Ciencias e tecnologia"
-        />
-
-
+        android:text="Ciencias e tecnologia" />
 
     <LinearLayout
         android:id="@+id/info_container"
@@ -41,29 +35,48 @@
         android:orientation="horizontal"
         android:paddingTop="10dp">
 
-        <TextView
-            android:id="@+id/cursos_empresas"
+        <!-- Container para os textos -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="14.5" />
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/cordenador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Sergio" />
+
+            <TextView
+                android:id="@+id/num_alunos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="10" />
+
+            <TextView
+                android:id="@+id/setor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Tecnologia" />
+        </LinearLayout>
+
+        <!-- Botão à direita -->
         <Button
             android:id="@+id/btn_empresas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ver Empresas"
             android:textStyle="bold|italic"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:background="?attr/selectableItemBackground"
             android:textColor="@android:color/black"
             android:layout_marginEnd="16dp"
             android:padding="8dp"
-            android:onClick="irEmpresas"
-            />
-
+            android:onClick="irEmpresas" />
     </LinearLayout>
-
-
 
 </RelativeLayout>

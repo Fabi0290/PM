@@ -113,9 +113,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
-    fun inicio(view: View) {
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    fun back(view: View) {
+        finish()
     }
 }

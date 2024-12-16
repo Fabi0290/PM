@@ -1,5 +1,6 @@
 package com.example.trab.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,9 @@ class CursoAdapter(private val cursos: List<Curso>, private val escolaId: Int) :
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nomeCurso: TextView = view.findViewById(R.id.cursos_name)
         val siglaCurso: TextView = view.findViewById(R.id.cursos_desc)
-        val empresasCurso: TextView = view.findViewById(R.id.cursos_empresas)
+        val cordCurso: TextView = view.findViewById(R.id.cordenador)
+        val numAluno: TextView = view.findViewById(R.id.num_alunos)
+        val setor: TextView = view.findViewById(R.id.setor)
         val infoContainer: LinearLayout = view.findViewById(R.id.info_container)
         val btnEmpresas: Button = view.findViewById(R.id.btn_empresas)
         val itemContainer: RelativeLayout = view.findViewById(R.id.linha2)
@@ -31,12 +34,15 @@ class CursoAdapter(private val cursos: List<Curso>, private val escolaId: Int) :
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val curso = cursos[position]
 
         viewHolder.nomeCurso.text = curso.nome_curso
         viewHolder.siglaCurso.text = curso.sigla
-        viewHolder.empresasCurso.text = curso.empresas.firstOrNull()?.nome ?: "N/D"
+        viewHolder.setor.text = "Setor: " + curso.setor
+        viewHolder.cordCurso.text = "Cord: " + curso.coordenador
+        viewHolder.numAluno.text = "Nº Alunos: " + curso.num_alunos.toString()
 
         // Alternar visibilidade do container ao clicar na área inteira
         viewHolder.itemContainer.setOnClickListener {
