@@ -6,12 +6,26 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.trab.adapter.COMMListAdapter
 import com.example.trab.databinding.ActivityEmpresaDetailsBinding
+import com.example.trab.viewModel.COMMViewModel
+import com.example.trab.viewModel.COMMViewModelFactory
 
 class EmpresaDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEmpresaDetailsBinding
+    private lateinit var adapter: COMMListAdapter
+
+    private val wordViewModel: COMMViewModel by viewModels {
+        COMMViewModelFactory((application as COMMApplication).repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +58,21 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         // Configurar botão de adicionar aos favoritos
 
 
-        // Configuração para comentários
-        binding.btnEnviarComentario.setOnClickListener {
-            val comentario = binding.inputComentario.text.toString()
-            if (comentario.isNotEmpty()) {
-                Toast.makeText(this, "Comentário enviado: $comentario", Toast.LENGTH_SHORT).show()
-                binding.inputComentario.text.clear()
-            } else {
-                Toast.makeText(this, "Escreva um comentário antes de enviar", Toast.LENGTH_SHORT).show()
-            }
+
+        enableEdgeToEdge()
+        adapter= COMMListAdapter()
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_comentarios)
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+
+        // Add an observer on the LiveData returned by getAlphabetizedWords.
+        // The onChanged() method fires when the observed data changes and the activity is
+        // in the foreground.
+        wordViewModel.allWords.observe(this) { words ->
+            // Update the cached copy of the words in the adapter.
+            words.let { adapter.submitList(it) }
         }
     }
 

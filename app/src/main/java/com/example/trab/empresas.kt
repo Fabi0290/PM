@@ -22,12 +22,12 @@ class empresas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_empresas)
 
-        // Recuperar os IDs passados pelo Intent
+        //PEga os ID passados pelo Intent
         val cursoId = intent.getIntExtra("CURSO_ID", -1)
         val escolaId = intent.getIntExtra("ESCOLA_ID", -1)
 
         if (cursoId == -1 || escolaId == -1) {
-            Toast.makeText(this, "Erro ao carregar IDs", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Erro ao carregar ID", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
@@ -36,7 +36,7 @@ class empresas : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Fazer a requisição para buscar empresas
+        // Fazer a requisição para pegar nas empresas
         val apiService = ServiceBuilder.buildService(EndPoints::class.java)
         fetchEmpresas(escolaId, cursoId, apiService, recyclerView)
 
@@ -56,7 +56,7 @@ class empresas : AppCompatActivity() {
                     // Configurar o Adapter com as empresas
                     recyclerView.adapter = EmpresasAdapter(ArrayList(empresas))
                 } else {
-                    Toast.makeText(this@empresas, "Erro ao buscar empresas", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@empresas, "Erro na busca de empresas", Toast.LENGTH_SHORT).show()
                 }
             }
 

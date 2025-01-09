@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.api.Empresa
 import com.example.trab.EmpresaDetailsActivity
 
-class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
+class EmpresasAdapter(private val Empresas: ArrayList<Empresa>) :
     RecyclerView.Adapter<EmpresasAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -36,7 +36,7 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val empresa = dataSet[position]
+        val empresa = Empresas[position]
 
         // Configurar os valores para cada item
         viewHolder.name.text = empresa.nome
@@ -78,5 +78,5 @@ class EmpresasAdapter(private val dataSet: ArrayList<Empresa>) :
         }
     }
 
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() = Empresas.size
 }
