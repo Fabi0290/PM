@@ -20,15 +20,15 @@ import retrofit2.Response
 
 class Cursos : AppCompatActivity() {
 
-    private val escolasIds = listOf(1, 2, 3, 4, 5, 6)  // IDs das escolas correspondentes ao Spinner
+    // IDs das escolas para o Spinner
+    private val escolasIds = listOf(1, 2, 3, 4, 5, 6)
     private val escolasNomes = listOf("ESTG", "ESE", "ESS", "ESA", "ESCE", "ESDL")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cursos)
-
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-
+        //recicle
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view2)
         recyclerView.apply {
             setHasFixedSize(true)
@@ -39,30 +39,31 @@ class Cursos : AppCompatActivity() {
         val spinner: Spinner = findViewById(R.id.spinner_escolas)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, escolasNomes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        spinner.adapter = adapter //associa spinner+adapter
 
-        // Adicione o listener ao Spinner para atualizar o ID da busca
+        // listener ao Spinner para atualizar o ID escolhido
         spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedEscolaId = escolasIds[position]
                 fetchCursos(selectedEscolaId, request, recyclerView)
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Ação caso nada seja selecionado
+                // nada selecionado
             }
         })
     }
 
+    //função que passa o id escolhido para o adapter
     private fun fetchCursos(escolaId: Int, request: EndPoints, recyclerView: RecyclerView) {
         request.getCurso(escolaId).enqueue(object : Callback<List<Curso>> {
             override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
                 if (response.isSuccessful) {
                     val cursos = response.body() ?: emptyList()
 
-                    // Passar o ID da escola para o Adapter
+                    // Passa o ID da escola para o Adapter
                     recyclerView.adapter = CursoAdapter(cursos, escolaId)
                 } else {
-                    Toast.makeText(this@Cursos, "Erro ao buscar cursos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Cursos, "Erro ir buscar cursos", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -79,7 +80,6 @@ class Cursos : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
     fun irEmpresas(view: View) {
-        // Lógica que será executada quando o botão for clicado
         val intent = Intent(applicationContext, empresas::class.java)
         startActivity(intent)
     }

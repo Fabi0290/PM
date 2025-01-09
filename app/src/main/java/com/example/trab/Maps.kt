@@ -49,7 +49,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
         val nortePortugal = LatLng(41.6946, -8.8302) // Coordenadas aproximadas do norte de Portugal
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nortePortugal, 8f))
 
-        // Configurar o listener para cliques no InfoWindow (configurado uma vez)
+        // Configurar o listener para cliques no InfoWindow
         mMap.setOnInfoWindowClickListener { marker ->
             val empresa = marker.tag as? Empresa
             if (empresa != null) {
@@ -68,7 +68,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        // Buscar empresas
+        // chama a funcção para as empresas
         fetchEmpresas()
     }
 
@@ -91,7 +91,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback {
                             )
                             marker?.tag = empresa
 
-                            // Centralizar na empresa selecionada, se o nome corresponder
+                            // Focar na empresa selecionada
                             if (empresa.nome == nomeEmpresaSelecionada) {
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,15f))
                                 marker?.showInfoWindow() // Mostra o InfoWindow automaticamente
