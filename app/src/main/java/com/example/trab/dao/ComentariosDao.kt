@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ComentariosDao {
-    @Query ("SELECT * FROM comentarios_table")
-    fun getComment(): Flow<List<Comentarios>>
+    @Query ("SELECT * FROM comentarios_table WHERE empresaName= :empresaName")
+    fun getComment(empresaName:String): Flow<List<Comentarios>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(comentarios: Comentarios)

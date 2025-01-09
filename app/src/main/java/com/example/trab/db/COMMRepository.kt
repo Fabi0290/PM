@@ -1,25 +1,29 @@
 package com.example.trab.db
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import com.example.trab.dao.ComentariosDao
 import com.example.trab.entities.Comentarios
 import kotlinx.coroutines.flow.Flow
 
 
-class COMMRepository (private val wordDao: ComentariosDao) {
+class COMMRepository (private val ComDao: ComentariosDao) {
 
 
-    val allWords: Flow<List<Comentarios>> = wordDao.getComment()
-
+    //val all: Flow<List<Comentarios>> = wordDao.getComment(empresaId)
+    fun getComment(empresaName: String): LiveData<List<Comentarios>> {
+        return ComDao.getComment(empresaName).asLiveData()
+    }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(comentarios: Comentarios) {
-        wordDao.insert(comentarios)
+        ComDao.insert(comentarios)
     }
 
     suspend fun deleteAll() {
-        wordDao.deleteAll()
+        ComDao.deleteAll()
     }
 
 

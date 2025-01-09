@@ -10,4 +10,5 @@ import kotlinx.coroutines.flow.Flow
 data class Comentarios (
     @PrimaryKey(autoGenerate = true) val id: Int?=null,
     @ColumnInfo(name="texto") val texto: String,
+    val empresaName: String?=null
 )

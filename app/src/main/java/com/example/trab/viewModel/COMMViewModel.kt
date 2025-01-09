@@ -17,8 +17,10 @@ class COMMViewModel(private val repository: COMMRepository) : ViewModel() {
     // - Repository is completely separated from the UI through the ViewModel.
 
     // ERRORS HERE: NEED TO IMPLEMENT LIVEDATA IN BUILD GRADLE
-    val allWords: LiveData<List<Comentarios>> = repository.allWords.asLiveData()
-
+    //val all: LiveData<List<Comentarios>> = repository.all.asLiveData()
+    fun getComment(empresaName: String): LiveData<List<Comentarios>> {
+        return repository.getComment(empresaName)
+    }
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */

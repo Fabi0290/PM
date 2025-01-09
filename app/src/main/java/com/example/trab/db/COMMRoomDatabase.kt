@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = arrayOf(Comentarios::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Comentarios::class), version = 4, exportSchema = false)
 abstract class COMMRoomDatabase : RoomDatabase() {
 
     abstract fun ComDao(): ComentariosDao
@@ -25,7 +25,7 @@ abstract class COMMRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     // Add sample words.
-                    var comment= Comentarios(1,"Boa app")
+                    var comment= Comentarios(1,"Boa app","Citin")
                     database.ComDao().insert(comment)
 
                 }
@@ -37,9 +37,9 @@ abstract class COMMRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     database.ComDao().deleteAll()
-                    var comment= Comentarios(1,"Boa empresa")
+                    var comment= Comentarios(1,"Boa empresa","Citin")
                     database.ComDao().insert(comment)
-                    var comment2= Comentarios(2,"bom estagio")
+                    var comment2= Comentarios(2,"bom estagio","EduTech")
                     database.ComDao().insert(comment2)
                     //ADICIONAR NOVA TABELA
                     //var fruta= Fruta(1,"ananas","amarelo")
