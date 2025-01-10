@@ -23,11 +23,13 @@ class COMMListAdapter : ListAdapter<Comentarios, COMMListAdapter.WordViewHolder>
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val CommItemView: TextView = itemView.findViewById(R.id.text1)
+        private val Rating: TextView = itemView.findViewById(R.id.rating)
 
         //private val wordItemView4: TextView = itemView.findViewById(R.id.text4)
 
         fun bind(item: Comentarios?) {
             CommItemView.text = item!!.texto
+            Rating.text=item!!.estrelas.toString()
         }
 
         companion object {

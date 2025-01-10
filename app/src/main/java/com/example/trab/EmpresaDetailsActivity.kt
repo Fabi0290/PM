@@ -6,7 +6,6 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -23,8 +22,6 @@ import com.example.trab.viewModel.COMMViewModelFactory
 
 class EmpresaDetailsActivity : AppCompatActivity() {
     private lateinit var editWordView: EditText
-
-
     private lateinit var binding: ActivityEmpresaDetailsBinding
     private lateinit var adapter: COMMListAdapter
 
@@ -44,11 +41,10 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         val numAlunos = intent.getIntExtra("num_alunos", 0)
         val numVagas = intent.getIntExtra("num_vagas", 0)
         val Setor = intent.getStringExtra("setor")
-        val Taxa = intent.getIntExtra("taxa",0)
-        val Ano= intent.getIntExtra("ano_criacao", 0)
+        val Taxa = intent.getIntExtra("taxa", 0)
+        val Ano = intent.getIntExtra("ano_criacao", 0)
         val Duracao = intent.getStringExtra("duracao_estagio")
-        val empresaName = nome
-
+        val empresaName = nome // Armazenando o nome da empresa para uso posterior
 
         // Configura os TextViews com os dados
         binding.empresaNome.text = nome
@@ -56,57 +52,58 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         binding.empresaCidade.text = "Cidade: $cidade"
         binding.empresaNumAlunos.text = "Alunos que estagiaram: $numAlunos"
         binding.empresaNumVagas.text = "Vagas disponíveis: $numVagas"
-        binding.setor.text = "Setor: "+ Setor
+        binding.setor.text = "Setor: $Setor"
         binding.taxaAc.text = "Taxa aceitação: $Taxa%"
         binding.ano.text = "Ano fundação: $Ano"
-        binding.duracao.text = "Duração: "+ Duracao
+        binding.duracao.text = "Duração: $Duracao"
 
-        // Configurar botão de adicionar aos favoritos
-
-
-
+        // Configuração da RecyclerView
         enableEdgeToEdge()
-        adapter= COMMListAdapter()
+        adapter = COMMListAdapter()
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_comentarios)
-
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
-        // Add an observer on the LiveData returned by getAlphabetizedWords.
-        // The onChanged() method fires when the observed data changes and the activity is
-        // in the foreground.
+        // Observa os comentários associados à empresa
         if (empresaName != null) {
             COMMViewModel.getComment(empresaName).observe(this) { comentarios ->
-                // Update the cached copy of the words in the adapter.
                 comentarios.let { adapter.submitList(comentarios) }
             }
         }
 
+        // Configura o campo de comentário
+        /*editWordView = findViewById(R.id.input_comentario)
 
-        editWordView= findViewById(R.id.input_comentario)
-
+        // Configura o botão de envio de comentário
         val button = findViewById<Button>(R.id.btn_enviar_comentario)
-        button.setOnClickListener{
-            if(TextUtils.isEmpty(editWordView.text)){
-                Toast.makeText(this,"Not saved bc is empty",Toast.LENGTH_SHORT).show()
-
-            }else{
-                var Comentario = Comentarios(null, editWordView.text.toString(),empresaName)//,editWordView3.text.toString())
-                COMMViewModel.insert(Comentario)
-                Toast.makeText(this,"Comentário Guardado",Toast.LENGTH_SHORT).show()
-                editWordView.setText("")
+        button.setOnClickListener {
+            if (TextUtils.isEmpty(editWordView.text)) {
+                Toast.makeText(this, "Comentário não pode estar vazio", Toast.LENGTH_SHORT).show()
+            } else {
+                val comentario = Comentarios(null, editWordView.text.toString(), empresaName)
+                COMMViewModel.insert(comentario)
+                Toast.makeText(this, "Comentário Guardado", Toast.LENGTH_SHORT).show()
+                editWordView.setText("") // Limpa o campo de texto após o envio
             }
-        }
+        }*/
     }
 
+    // Função para abrir o mapa com o nome da empresa
     fun verMapa(view: View) {
         val intent = Intent(applicationContext, Maps::class.java)
         intent.putExtra("nome", binding.empresaNome.text.toString())
         startActivity(intent)
     }
 
+    // Função para voltar para a tela anterior
     fun back(view: View) {
         finish()
+    }
+
+    // Função para adicionar um comentário
+    fun adicionarcomm(view: View) { // Pega o nome da empresa atual
+        val intent = Intent(applicationContext, Coment::class.java)
+        intent.putExtra("nome", binding.empresaNome.text.toString()) // Passa o nome da empresa para a próxima Activity
+        startActivity(intent)
     }
 }
