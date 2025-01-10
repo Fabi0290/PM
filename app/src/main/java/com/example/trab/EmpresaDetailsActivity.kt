@@ -103,7 +103,8 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     // Função para adicionar um comentário
     fun adicionarcomm(view: View) { // Pega o nome da empresa atual
         val intent = Intent(applicationContext, Coment::class.java)
-        intent.putExtra("nome", binding.empresaNome.text.toString()) // Passa o nome da empresa para a próxima Activity
+        intent.putExtra("nome", binding.empresaNome.text.toString())
+        intent.putExtra("cidade", binding.empresaCidade.text.toString())
         startActivity(intent)
     }
 }

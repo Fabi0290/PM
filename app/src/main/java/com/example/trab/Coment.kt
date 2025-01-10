@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -18,10 +19,12 @@ import com.example.trab.viewModel.COMMViewModelFactory
 
 class Coment : AppCompatActivity() {
     private lateinit var editWordView: EditText
+    private lateinit var Nome: TextView
     private lateinit var ratingBar: RatingBar
 
     // Inicialize a variável empresaName apenas após pegar o valor de "nome" da Intent
     private lateinit var empresaName: String
+
 
     private val COMMViewModel: COMMViewModel by viewModels {
         COMMViewModelFactory((application as COMMApplication).repository)
@@ -40,6 +43,8 @@ class Coment : AppCompatActivity() {
             insets
         }
 
+        Nome = findViewById(R.id.nomeEmpresa)
+        Nome.setText(empresaName)
         // Comments
         editWordView = findViewById(R.id.input_comentario)
         ratingBar = findViewById(R.id.rating_bar)
