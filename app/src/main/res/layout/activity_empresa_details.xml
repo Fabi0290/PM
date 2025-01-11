@@ -156,6 +156,20 @@
             android:textStyle="bold"
             android:paddingTop="16dp"
             android:layout_below="@id/ver_mapa" />
+
+        <Button
+            android:id="@+id/adicionar_comm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar comentário"
+            android:textStyle="bold|italic"
+            android:textSize="15dp"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:onClick="adicionarcomm"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/ver_mapa"
+            />
         <!-- RECYCLERVIEW PARA COMENTÁRIOS -->
 
         <androidx.recyclerview.widget.RecyclerView
@@ -168,7 +182,7 @@
             tools:listitem="@layout/item_comm"/>
 
         <!-- COMENT-->
-        <EditText
+        <!--<EditText
             android:id="@+id/input_comentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,9 +190,40 @@
             android:padding="10dp"
             android:background="#c2c2c2"
             android:layout_below="@id/recyclerview_comentarios"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            />
 
-        <!-- Btn COMMENT -->
+        <!- Btn COMMENT -->
+
+        <!--<ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/favnew"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_margin="7dp"
+            android:background="@null"
+            android:layout_below="@id/recyclerview_comentarios"
+            android:layout_alignParentEnd="true"
+
+            />-->
+
+        <!--<RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recyclerview_comentarios"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="0dp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:paddingTop="4dp"
+            android:rating="0"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:stepSize="1.0" />
+
         <Button
             android:id="@+id/btn_enviar_comentario"
             android:layout_width="match_parent"
@@ -188,7 +233,7 @@
             android:layout_below="@id/input_comentario"
             android:layout_marginTop="8dp"
             android:background="@drawable/cantos"
-            />
+            />-->
 
     </RelativeLayout>
 </ScrollView>

@@ -20,7 +20,7 @@
         <!-- Texto do Comentário -->
         <TextView
             android:id="@+id/textItem"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:textColor="#333333"
@@ -28,6 +28,14 @@
             android:textStyle="bold"
             android:text="Comentários Anonimos"
             android:lineSpacingExtra="5dp"/>
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="4.0"
+
+            />
 
         <!-- Tipo de Comentário (ex: Usuário) -->
         <TextView
