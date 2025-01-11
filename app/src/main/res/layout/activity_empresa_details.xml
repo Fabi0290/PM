@@ -21,28 +21,59 @@
             android:layout_marginRight="10dp"
             />
 
+        <!-- Caixa para informações da empresa -->
         <LinearLayout
             android:id="@+id/caixa1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
+            android:layout_below="@id/icon"
             android:layout_marginBottom="16dp"
-            android:layout_below="@+id/icon"
-            android:layout_marginLeft="0dp"
-            >
+            android:layout_marginLeft="0dp">
 
-            <!-- Nome-->
-            <TextView
-                android:id="@+id/empresa_nome"
+            <!-- Nome da Empresa com a média e estrela à direita -->
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingBottom="8dp"
-                android:text="Nome da Empresa" />
+                android:layout_height="wrap_content">
 
-            <!-- Descrição -->
+                <TextView
+                    android:id="@+id/empresa_nome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp"
+                    android:text="Nome da Empresa"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <!-- Média de Estrelas -->
+                <TextView
+                    android:id="@+id/media"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="110dp"
+                    android:layout_alignParentTop="true"
+                    android:hint="5.0"
+                    android:textSize="18sp"
+                    android:layout_toEndOf="@id/empresa_nome" />
+
+                <!-- Estrela -->
+                <TextView
+                    android:id="@+id/estrela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★"
+                    android:textSize="23sp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toEndOf="@id/empresa_nome" />
+            </RelativeLayout>
+
+            <!-- Descrição da Empresa -->
             <TextView
                 android:id="@+id/empresa_descricao"
                 android:layout_width="match_parent"
@@ -61,7 +92,7 @@
                 android:paddingBottom="8dp"
                 android:text="Cidade: Nome da Cidade" />
 
-            <!-- Num Alunos -->
+            <!-- Número de Alunos -->
             <TextView
                 android:id="@+id/empresa_num_alunos"
                 android:layout_width="match_parent"
@@ -70,7 +101,7 @@
                 android:paddingBottom="8dp"
                 android:text="Número de Alunos: 50" />
 
-            <!-- Num Vagas -->
+            <!-- Número de Vagas -->
             <TextView
                 android:id="@+id/empresa_num_vagas"
                 android:layout_width="match_parent"
@@ -86,34 +117,34 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:paddingBottom="8dp"
-                android:text="Número de Vagas: 10" />
+                android:text="Setor: Tecnologia" />
 
-            <!-- Taxa aceitação-->
+            <!-- Taxa aceitação -->
             <TextView
                 android:id="@+id/taxa_ac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:paddingBottom="8dp"
-                android:text="Número de Vagas: 10" />
+                android:text="Taxa de Aceitação: 80%" />
 
-            <!-- Ano criação-->
+            <!-- Ano de criação -->
             <TextView
                 android:id="@+id/ano"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:paddingBottom="8dp"
-                android:text="Número de Vagas: 10" />
+                android:text="Ano de Criação: 2005" />
 
-            <!-- duração estagio-->
+            <!-- Duração do Estágio -->
             <TextView
                 android:id="@+id/duracao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:paddingBottom="8dp"
-                android:text="Número de Vagas: 10" />
+                android:text="Duração do Estágio: 6 meses" />
         </LinearLayout>
 
         <Button
@@ -146,7 +177,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true" />
 
-        <!-- COMMENTARIO -->
+        <!-- Comentário -->
         <TextView
             android:id="@+id/comentarios_titulo"
             android:layout_width="match_parent"
@@ -170,8 +201,8 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@id/ver_mapa"
             />
-        <!-- RECYCLERVIEW PARA COMENTÁRIOS -->
 
+        <!-- RecyclerView para Comentários -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_comentarios"
             android:layout_width="match_parent"
@@ -180,60 +211,6 @@
             android:layout_marginTop="8dp"
             android:scrollbars="vertical"
             tools:listitem="@layout/item_comm"/>
-
-        <!-- COMENT-->
-        <!--<EditText
-            android:id="@+id/input_comentario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Escreva um comentário"
-            android:padding="10dp"
-            android:background="#c2c2c2"
-            android:layout_below="@id/recyclerview_comentarios"
-            android:layout_marginTop="8dp"
-            android:inputType="text"
-            />
-
-        <!- Btn COMMENT -->
-
-        <!--<ImageButton
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/favnew"
-            android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:layout_margin="7dp"
-            android:background="@null"
-            android:layout_below="@id/recyclerview_comentarios"
-            android:layout_alignParentEnd="true"
-
-            />-->
-
-        <!--<RatingBar
-            android:id="@+id/rating_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recyclerview_comentarios"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="0dp"
-            android:isIndicator="false"
-            android:numStars="5"
-            android:paddingTop="4dp"
-            android:rating="0"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:stepSize="1.0" />
-
-        <Button
-            android:id="@+id/btn_enviar_comentario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enviar Comentário"
-            android:padding="10dp"
-            android:layout_below="@id/input_comentario"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/cantos"
-            />-->
 
     </RelativeLayout>
 </ScrollView>

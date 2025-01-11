@@ -22,6 +22,7 @@ class Coment : AppCompatActivity() {
     private lateinit var Nome: TextView
     private lateinit var ratingBar: RatingBar
 
+
     // Inicialize a variável empresaName apenas após pegar o valor de "nome" da Intent
     private lateinit var empresaName: String
 
