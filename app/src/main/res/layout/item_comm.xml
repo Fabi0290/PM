@@ -21,33 +21,33 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/textItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textColor="#333333"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Comentários Anonimos"
-            android:lineSpacingExtra="5dp"
+            <TextView
+                android:id="@+id/textItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Comentários Anonimos"
+                android:lineSpacingExtra="5dp"
 
-            />
+                />
 
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="4.0"
-            android:layout_marginLeft="20dp"
-            />
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="4.0"
+                android:layout_marginLeft="20dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="★"
                 android:textSize="17dp"
                 />
-    </LinearLayout>
+        </LinearLayout>
         <!-- Tipo de Comentário (ex: Usuário) -->
         <TextView
             android:id="@+id/text1"
