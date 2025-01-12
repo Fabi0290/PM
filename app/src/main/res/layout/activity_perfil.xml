@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".perfil"
-    android:background="#DCDCDC">
+    android:background="#DCDCDC"
+    >
 
     <ImageView
         android:id="@+id/img1"
@@ -16,7 +18,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:srcCompat="@drawable/icon2" />
-
     <ImageView
         android:id="@+id/icon"
         android:layout_width="32dp"
@@ -27,26 +28,40 @@
         android:onClick="inicio"
         app:srcCompat="@drawable/img_1" />
 
-    <!-- Texto "Meus Favoritos" -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/img"
+        android:background="@drawable/circle_shape"
+        android:contentDescription="Foto do perfil" />
+
     <TextView
         android:id="@+id/text_favoritos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img1"
+        android:layout_below="@id/profile_image"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:text="Meus Favoritos"
-        android:textSize="18sp"
+        android:text="Meus favoritos"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#000" />
+        android:textColor="#333333"
+        android:layout_marginStart="16dp"/>
 
-    <!-- RecyclerView para exibir os favoritos -->
+
+    <!-- Parâmetros adicionados com EditTexts -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_favoritos"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@id/text_favoritos"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_centerHorizontal="true"/>
+
+
+
 </RelativeLayout>

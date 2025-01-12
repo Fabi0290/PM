@@ -1,31 +1,30 @@
 package com.example.trab
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trab.adapter.COMMListAdapter
 import com.example.trab.databinding.ActivityEmpresaDetailsBinding
-import com.example.trab.entities.Comentarios
 import com.example.trab.viewModel.COMMViewModel
 import com.example.trab.viewModel.COMMViewModelFactory
+import android.content.Context
+import android.widget.ImageButton
 
 class EmpresaDetailsActivity : AppCompatActivity() {
     private lateinit var editWordView: EditText
     private lateinit var binding: ActivityEmpresaDetailsBinding
     private lateinit var adapter: COMMListAdapter
+    private lateinit var Media: TextView
+
 
     // Inicializa o SharedPreferences para favoritos
     private val sharedPreferences by lazy {
@@ -42,7 +41,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Recupera os dados da Intent
-        val nome = intent.getStringExtra("nome")
+        val nome = intent.getStringExtra("nome")?:""
         val descricao = intent.getStringExtra("descricao")
         val cidade = intent.getStringExtra("cidade")
         val numAlunos = intent.getIntExtra("num_alunos", 0)
@@ -78,32 +77,39 @@ class EmpresaDetailsActivity : AppCompatActivity() {
             }
         }
 
-        // Configura o campo de comentário
-        /*editWordView = findViewById(R.id.input_comentario)
 
-        // Configura o botão de envio de comentário
-        val button = findViewById<Button>(R.id.btn_enviar_comentario)
-        button.setOnClickListener {
-            if (TextUtils.isEmpty(editWordView.text)) {
-                Toast.makeText(this, "Comentário não pode estar vazio", Toast.LENGTH_SHORT).show()
+
+        // Observando os comentários no ViewModel
+        COMMViewModel.getComment(empresaName).observe(this, Observer { comentarios ->
+            // Verifica se 'comentarios' não é nulo e não está vazio
+            if (comentarios != null && comentarios.isNotEmpty()) {
+                val validComentarios = comentarios.filter { it.estrelas != null && it.estrelas?.toDouble() != null }
+
+                if (validComentarios.isNotEmpty()) {
+                    // Calcula a soma das estrelas válidas como Double
+                    val totalEstrelas = validComentarios.sumOf { it.estrelas?.toDouble() ?: 0.0 }
+                    val mediaRatings = totalEstrelas / validComentarios.size
+                    val mediaTextView: TextView = findViewById(R.id.media)
+                    mediaTextView.text = "%.2f".format(mediaRatings)
+                } else {
+                    val mediaTextView: TextView = findViewById(R.id.media)
+                    mediaTextView.text = "N/A"
+                }
             } else {
-                val comentario = Comentarios(null, editWordView.text.toString(), empresaName)
-                COMMViewModel.insert(comentario)
-                Toast.makeText(this, "Comentário Guardado", Toast.LENGTH_SHORT).show()
-                editWordView.setText("") // Limpa o campo de texto após o envio
+                // Caso não haja comentários
+                val mediaTextView: TextView = findViewById(R.id.media)
+                mediaTextView.text = "N/A"
             }
-        }*/
+        })
+
 
         // Configuração do botão de favoritos
         val favButton = findViewById<ImageButton>(R.id.icon_favoritar)
         updateFavoriteIcon(favButton, empresaName ?: "")
-
         favButton.setOnClickListener {
             toggleFavorite(favButton, empresaName ?: "")
         }
     }
-
-
     // Função para alternar o estado de favorito
     private fun toggleFavorite(button: ImageButton, empresaName: String) {
         val isFavorited = sharedPreferences.getBoolean(empresaName, false)
@@ -118,7 +124,6 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         }
         updateFavoriteIcon(button, empresaName)
     }
-
     // Atualiza o ícone do botão de favorito
     private fun updateFavoriteIcon(button: ImageButton, empresaName: String) {
         val isFavorited = sharedPreferences.getBoolean(empresaName, false)
@@ -127,7 +132,10 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         } else {
             button.setImageResource(R.drawable.img_3) // Ícone padrão
         }
+
+
     }
+
 
     // Função para abrir o mapa com o nome da empresa
     fun verMapa(view: View) {
