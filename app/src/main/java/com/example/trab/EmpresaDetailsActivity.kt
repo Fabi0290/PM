@@ -2,8 +2,6 @@ package com.example.trab
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -22,12 +20,20 @@ import com.example.trab.databinding.ActivityEmpresaDetailsBinding
 import com.example.trab.entities.Comentarios
 import com.example.trab.viewModel.COMMViewModel
 import com.example.trab.viewModel.COMMViewModelFactory
+import android.content.Context
+import android.widget.ImageButton
 
 class EmpresaDetailsActivity : AppCompatActivity() {
     private lateinit var editWordView: EditText
     private lateinit var binding: ActivityEmpresaDetailsBinding
     private lateinit var adapter: COMMListAdapter
     private lateinit var Media: TextView
+
+
+    // Inicializa o SharedPreferences para favoritos
+    private val sharedPreferences by lazy {
+        getSharedPreferences("favoritos", Context.MODE_PRIVATE)
+    }
 
     private val COMMViewModel: COMMViewModel by viewModels {
         COMMViewModelFactory((application as COMMApplication).repository)
@@ -101,7 +107,35 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         })
 
 
-
+        // Configuração do botão de favoritos
+        val favButton = findViewById<ImageButton>(R.id.icon_favoritar)
+        updateFavoriteIcon(favButton, empresaName ?: "")
+        favButton.setOnClickListener {
+            toggleFavorite(favButton, empresaName ?: "")
+        }
+    }
+    // Função para alternar o estado de favorito
+    private fun toggleFavorite(button: ImageButton, empresaName: String) {
+        val isFavorited = sharedPreferences.getBoolean(empresaName, false)
+        if (isFavorited) {
+            // Remove dos favoritos
+            sharedPreferences.edit().remove(empresaName).apply()
+            Toast.makeText(this, "$empresaName removida dos favoritos", Toast.LENGTH_SHORT).show()
+        } else {
+            // Adiciona aos favoritos
+            sharedPreferences.edit().putBoolean(empresaName, true).apply()
+            Toast.makeText(this, "$empresaName adicionada aos favoritos", Toast.LENGTH_SHORT).show()
+        }
+        updateFavoriteIcon(button, empresaName)
+    }
+    // Atualiza o ícone do botão de favorito
+    private fun updateFavoriteIcon(button: ImageButton, empresaName: String) {
+        val isFavorited = sharedPreferences.getBoolean(empresaName, false)
+        if (isFavorited) {
+            button.setImageResource(R.drawable.img_4) // Ícone para favorito ativo
+        } else {
+            button.setImageResource(R.drawable.img_3) // Ícone padrão
+        }
 
 
     }
