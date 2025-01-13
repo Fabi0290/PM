@@ -21,6 +21,7 @@ import com.example.trab.entities.Comentarios
 import com.example.trab.viewModel.COMMViewModel
 import com.example.trab.viewModel.COMMViewModelFactory
 import android.content.Context
+import android.view.ContextMenu
 import android.widget.ImageButton
 
 class EmpresaDetailsActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmpresaDetailsBinding
     private lateinit var adapter: COMMListAdapter
     private lateinit var Media: TextView
-
+    var comentarioTextoSelecionado: String? = null
 
     // Inicializa o SharedPreferences para favoritos
     private val sharedPreferences by lazy {
@@ -69,7 +70,13 @@ class EmpresaDetailsActivity : AppCompatActivity() {
 
         // Configuração da RecyclerView
         enableEdgeToEdge()
-        adapter = COMMListAdapter()
+
+        // Criando o adapter e passando o callback para o clique nos itens
+        adapter = COMMListAdapter { comentario ->
+            // Ao clicar longo no comentário, exibe o menu de contexto
+            registerForContextMenu(binding.recyclerviewComentarios)
+            openContextMenu(binding.recyclerviewComentarios)
+        }
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_comentarios)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -138,6 +145,24 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         }
 
 
+
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        // Carrega o menu de contexto
+        menuInflater.inflate(R.menu.menu_item, menu)
+
+        // Adiciona a ação para deletar o comentário
+        menu?.findItem(R.id.opcao_deletar)?.setOnMenuItemClickListener {
+            // Deleta o comentário com o texto selecionado
+            comentarioTextoSelecionado?.let { texto ->
+                Toast.makeText(this, "Comentário '$texto' Apagado", Toast.LENGTH_SHORT).show()
+                COMMViewModel.deleteThis(texto) // Deleta pelo texto do comentário
+            }
+            true
+        }
     }
 
 
@@ -157,7 +182,6 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     fun adicionarcomm(view: View) { // Pega o nome da empresa atual
         val intent = Intent(applicationContext, Coment::class.java)
         intent.putExtra("nome", binding.empresaNome.text.toString())
-        intent.putExtra("cidade", binding.empresaCidade.text.toString())
         startActivity(intent)
     }
 }

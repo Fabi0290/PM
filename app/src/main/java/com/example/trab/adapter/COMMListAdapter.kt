@@ -7,13 +7,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.trab.EmpresaDetailsActivity
 import com.example.trab.R
 import com.example.trab.entities.Comentarios
 
-class COMMListAdapter : ListAdapter<Comentarios, COMMListAdapter.WordViewHolder>(WordsComparator()) {
+class COMMListAdapter(private val onItemLongClick: (Comentarios) -> Unit) : ListAdapter<Comentarios, COMMListAdapter.WordViewHolder>(WordsComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        return WordViewHolder.create(parent)
+        return WordViewHolder.create(parent, onItemLongClick)
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
@@ -21,7 +22,7 @@ class COMMListAdapter : ListAdapter<Comentarios, COMMListAdapter.WordViewHolder>
         holder.bind(current)
     }
 
-    class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class WordViewHolder(itemView: View, private val onItemLongClick: (Comentarios) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val CommItemView: TextView = itemView.findViewById(R.id.text1)
         private val Rating: TextView = itemView.findViewById(R.id.rating)
 
@@ -30,13 +31,25 @@ class COMMListAdapter : ListAdapter<Comentarios, COMMListAdapter.WordViewHolder>
         fun bind(item: Comentarios?) {
             CommItemView.text = item!!.texto
             Rating.text=item!!.estrelas.toString()
+
+            // Configura o clique longo para o item
+            itemView.setOnLongClickListener {
+                item?.let {
+                    // Passa o comentário para a função de clique longo
+                    onItemLongClick(it)
+
+                    //passa para activity
+                    (itemView.context as EmpresaDetailsActivity).comentarioTextoSelecionado = item.texto
+                }
+                true // Retorna true para indicar que o evento foi consumido
+            }
         }
 
         companion object {
-            fun create(parent: ViewGroup): WordViewHolder {
+            fun create(parent: ViewGroup, onItemLongClick: (Comentarios) -> Unit): WordViewHolder {
                 val view: View = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_comm, parent, false)
-                return WordViewHolder(view)
+                return WordViewHolder(view,onItemLongClick)
             }
         }
     }

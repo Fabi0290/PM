@@ -20,4 +20,7 @@ interface ComentariosDao {
     @Query("DELETE FROM comentarios_table")
     suspend fun deleteAll()
 
+    @Query("DELETE FROM comentarios_table WHERE texto= :texto")
+    suspend fun deleteThis(texto: String)
+
 }
