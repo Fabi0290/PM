@@ -151,7 +151,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         // Carrega o menu
         menuInflater.inflate(R.menu.menu_item, menu)
 
-        menu?.findItem(R.id.opcao_deletar)?.setOnMenuItemClickListener {
+        menu?.findItem(R.id.opcao_apagar)?.setOnMenuItemClickListener {
             // Apaga comm
             comentarioIdSelecionado?.let { id ->
                 Toast.makeText(this, "Comentário  Apagado", Toast.LENGTH_SHORT).show()
