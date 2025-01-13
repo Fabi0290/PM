@@ -71,7 +71,6 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         // Configuração da RecyclerView
         enableEdgeToEdge()
 
-        // Criando o adapter e passando o callback para o clique nos itens
         adapter = COMMListAdapter { comentario ->
             // Ao clicar longo no comentário, exibe o menu de contexto
             registerForContextMenu(binding.recyclerviewComentarios)
@@ -81,16 +80,14 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Observa os comentários associados à empresa
+        //comm list
         if (empresaName != null) {
             COMMViewModel.getComment(empresaName).observe(this) { comentarios ->
                 comentarios.let { adapter.submitList(comentarios) }
             }
         }
 
-
-
-        // Observando os comentários no ViewModel
+        //media
         COMMViewModel.getComment(empresaName).observe(this, Observer { comentarios ->
             // Verifica se 'comentarios' não é nulo e não está vazio
             if (comentarios != null && comentarios.isNotEmpty()) {
@@ -147,7 +144,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
 
 
     }
-
+    //menu eliminar
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
 
@@ -178,7 +175,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     }
 
     // Função para adicionar um comentário
-    fun adicionarcomm(view: View) { // Pega o nome da empresa atual
+    fun adicionarcomm(view: View) {
         val intent = Intent(applicationContext, Coment::class.java)
         intent.putExtra("nome", binding.empresaNome.text.toString())
         startActivity(intent)

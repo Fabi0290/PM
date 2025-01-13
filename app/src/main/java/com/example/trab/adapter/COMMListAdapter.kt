@@ -37,7 +37,6 @@ class COMMListAdapter(private val onItemLongClick: (Comentarios) -> Unit) : List
                 item?.let {
                     // Passa o comentário para a função de clique longo
                     onItemLongClick(it)
-
                     //passa para activity
                     (itemView.context as EmpresaDetailsActivity).comentarioIdSelecionado = item.id
                 }
