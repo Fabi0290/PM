@@ -39,7 +39,7 @@ class COMMListAdapter(private val onItemLongClick: (Comentarios) -> Unit) : List
                     onItemLongClick(it)
 
                     //passa para activity
-                    (itemView.context as EmpresaDetailsActivity).comentarioTextoSelecionado = item.texto
+                    (itemView.context as EmpresaDetailsActivity).comentarioIdSelecionado = item.id
                 }
                 true // Retorna true para indicar que o evento foi consumido
             }

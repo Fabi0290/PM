@@ -29,7 +29,7 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmpresaDetailsBinding
     private lateinit var adapter: COMMListAdapter
     private lateinit var Media: TextView
-    var comentarioTextoSelecionado: String? = null
+    var comentarioIdSelecionado: Int? = null
 
     // Inicializa o SharedPreferences para favoritos
     private val sharedPreferences by lazy {
@@ -135,13 +135,13 @@ class EmpresaDetailsActivity : AppCompatActivity() {
         }
         updateFavoriteIcon(button, empresaName)
     }
-    // Atualiza o ícone do botão de favorito
+    // Atualiza o ícone favorito
     private fun updateFavoriteIcon(button: ImageButton, empresaName: String) {
         val isFavorited = sharedPreferences.getBoolean(empresaName, false)
         if (isFavorited) {
-            button.setImageResource(R.drawable.img_4) // Ícone para favorito ativo
+            button.setImageResource(R.drawable.img_4)
         } else {
-            button.setImageResource(R.drawable.img_3) // Ícone padrão
+            button.setImageResource(R.drawable.img_3)
         }
 
 
@@ -151,22 +151,21 @@ class EmpresaDetailsActivity : AppCompatActivity() {
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
 
-        // Carrega o menu de contexto
+        // Carrega o menu
         menuInflater.inflate(R.menu.menu_item, menu)
 
-        // Adiciona a ação para deletar o comentário
         menu?.findItem(R.id.opcao_deletar)?.setOnMenuItemClickListener {
-            // Deleta o comentário com o texto selecionado
-            comentarioTextoSelecionado?.let { texto ->
-                Toast.makeText(this, "Comentário '$texto' Apagado", Toast.LENGTH_SHORT).show()
-                COMMViewModel.deleteThis(texto) // Deleta pelo texto do comentário
+            // Apaga comm
+            comentarioIdSelecionado?.let { id ->
+                Toast.makeText(this, "Comentário  Apagado", Toast.LENGTH_SHORT).show()
+                COMMViewModel.deleteThis(id)
             }
             true
         }
     }
 
 
-    // Função para abrir o mapa com o nome da empresa
+    // Função para abrir o mapa com o nome empresa
     fun verMapa(view: View) {
         val intent = Intent(applicationContext, Maps::class.java)
         intent.putExtra("nome", binding.empresaNome.text.toString())

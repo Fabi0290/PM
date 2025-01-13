@@ -26,8 +26,8 @@ class COMMRepository (private val ComDao: ComentariosDao) {
         ComDao.deleteAll()
     }
 
-    suspend fun deleteThis(texto: String){
-        ComDao.deleteThis(texto)
+    suspend fun deleteThis(id: Int){
+        ComDao.deleteThis(id)
     }
 
 

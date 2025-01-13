@@ -34,8 +34,8 @@ class COMMViewModel(private val repository: COMMRepository) : ViewModel() {
         repository.deleteAll()
     }
 
-    fun deleteThis(texto: String)=viewModelScope.launch {
-        repository.deleteThis(texto)
+    fun deleteThis(id: Int)=viewModelScope.launch {
+        repository.deleteThis(id)
     }
 
 
